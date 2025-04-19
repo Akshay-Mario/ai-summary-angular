@@ -1,0 +1,19 @@
+<div class="input-form">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <input formControlName="email" placeholder="email" />
+        <div style="min-height: 1.2em">
+            <small *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.invalid">
+              <span *ngIf="loginForm.get('email')?.errors?.['required']">Email is required</span>
+              <span *ngIf="loginForm.get('email')?.errors?.['email']">Invalid email</span>
+            </small>
+          </div>
+        <input formControlName="password" placeholder="password" />
+        <div style="min-height: 1.2em">
+            <small *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid">
+              <span *ngIf="loginForm.get('password')?.errors?.['required']">Password is required</span>
+              <small *ngIf="loginForm.get('password')?.errors?.['minlength']">Min 6 characters</small>
+            </small>
+          </div>
+        <button [disabled]="!loginForm.valid" type="submit">Login</button>
+    </form>
+</div>

@@ -10,4 +10,10 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'ai-summary';
+
+
+  toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    document.documentElement.setAttribute('data-theme', `${currentTheme === "light" ? "dark" : "light"}`)
+  }
 }
