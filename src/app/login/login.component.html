@@ -1,10 +1,10 @@
 <div class="input-form">
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        <input formControlName="email" placeholder="email" />
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit(action)">
+        <input formControlName="username" placeholder="username/email" />
         <div style="min-height: 1.2em">
-            <small *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.invalid">
-              <span *ngIf="loginForm.get('email')?.errors?.['required']">Email is required</span>
-              <span *ngIf="loginForm.get('email')?.errors?.['email']">Invalid email</span>
+            <small *ngIf="loginForm.get('username')?.touched && loginForm.get('username')?.invalid">
+              <span *ngIf="loginForm.get('username')?.errors?.['required']">username is required</span>
+              <span *ngIf="loginForm.get('username')?.errors?.['username']">Invalid username</span>
             </small>
           </div>
         <input formControlName="password" placeholder="password" />
@@ -14,6 +14,7 @@
               <small *ngIf="loginForm.get('password')?.errors?.['minlength']">Min 6 characters</small>
             </small>
           </div>
-        <button [disabled]="!loginForm.valid" type="submit">Login</button>
+        <button (click)="action='login'"  [disabled]="!loginForm.valid" type="submit">Login</button>
+        <button (click)="action='register'" [disabled]="!loginForm.valid" type="submit">Register</button>
     </form>
 </div>
