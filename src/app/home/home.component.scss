@@ -1,0 +1,28 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow: hidden;
+    align-items: center;
+}
+
+.home-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    height: 100%;
+    overflow: hidden;
+    width: 65%;
+
+
+    .chat-display {
+        flex: 1;
+        overflow-y: auto;
+        min-height: 0;
+    }
+
+    .search-footer {
+        flex-shrink: 0;
+        // padding: 10px;
+    }
+}

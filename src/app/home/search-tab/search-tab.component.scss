@@ -1,0 +1,55 @@
+:host-context([data-theme="dark"]) .input-area {
+    box-shadow: none;
+
+}
+
+.input-area {
+    // width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 10px;
+    background-color: var(--bg-input-div);
+    border: 1px solid var(--border-color);
+    border-radius: 30px;
+    box-shadow: 0 3px 10px rgba(6, 6, 6, 0.219);
+
+
+
+    textarea {
+        width: 100%;
+        box-sizing: border-box;
+        background-color: var(--bg-input-div);
+        border: 0px;
+        color: var(--text-color);
+        resize: none;
+        max-height: 30vh;
+
+        &:focus {
+            outline: none;
+        }
+
+    }
+
+    #send-message {
+        align-self: flex-end;
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        padding: 0px;
+    }
+
+}
+
+// styles.scss or inside component.scss
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    border: 0px;
+    padding: 0px;
+    margin: -1px;
+}
