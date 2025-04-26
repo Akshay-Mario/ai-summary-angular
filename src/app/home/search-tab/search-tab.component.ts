@@ -37,7 +37,9 @@ export class SearchTabComponent {
     if(event.key == 'Enter' && !event.shiftKey) {
       event.preventDefault();
       this.onSubmit();
+      this.textarea.nativeElement.style.height = 'auto'
     }
   }
 
 }
+
