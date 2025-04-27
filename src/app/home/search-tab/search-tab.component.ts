@@ -1,6 +1,7 @@
 import { Component, ElementRef, signal, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AutoResizeDirective } from '../../directive/auto-resize.directive';
+import { ChatStateService } from '../../chat-state.service';
 
 @Component({
   selector: 'app-search-tab',
@@ -11,10 +12,14 @@ import { AutoResizeDirective } from '../../directive/auto-resize.directive';
 })
 export class SearchTabComponent {
 
-  searchText = signal<string>('');
+  searchText: string = '';
 
   @ViewChild('autoResizeTextArea') textarea !: ElementRef<HTMLTextAreaElement>;
 
+
+  constructor(private chatService: ChatStateService) {
+
+  }
 
   ngAfterViewInit() {
     console.log("after view in it")
@@ -28,13 +33,17 @@ export class SearchTabComponent {
   //   textarea.style.height = `${textarea.scrollHeight}px`;
   // }
 
+
   onSubmit() {
-    console.log("hryy", this.searchText())
-    this.searchText.set('');
+
+    this.chatService.chatState.update(m => [
+      ...m,
+      { message: this.searchText, user: true }])
+    this.searchText = '';
   }
 
   handleEnter(event: KeyboardEvent) {
-    if(event.key == 'Enter' && !event.shiftKey) {
+    if (event.key == 'Enter' && !event.shiftKey) {
       event.preventDefault();
       this.onSubmit();
       this.textarea.nativeElement.style.height = 'auto'

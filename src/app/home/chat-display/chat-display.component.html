@@ -1,14 +1,10 @@
-<!-- <p>chat-display works!</p>
-<p>{{this.chatMessages()[0].message}}</p> -->
+
 
 <section aria-label="chat conversation">
     <ul class="chatList">
         <li *ngFor="let chat of this.chatMessages()" >
             <article [ngClass]="chat.user ? 'user' : 'ai'">
-                <p>iygiugoiuygiougoiuguigigiugiug 
-                    iiugiug iug iug iug iu
-                    gi hiu hi
-                    ug oyfuyfgu oiu iu ui hiuhoiuh iu hiuh ;5emremr e;ldkwkazs lwaihskj aslknp;alsn;kans;kn</p>
+                <p>{{chat.message}}</p>
             </article>
         </li>
     </ul>
