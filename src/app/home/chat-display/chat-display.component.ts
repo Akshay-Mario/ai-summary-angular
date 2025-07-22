@@ -1,4 +1,4 @@
-import { Component, Signal } from '@angular/core';
+import { Component, effect, ElementRef, Signal, ViewChild } from '@angular/core';
 import { ChatStateService } from '../../chat-state.service';
 import { IChatState } from '../../shared/models/chat-state.model';
 import { CommonModule } from '@angular/common';
@@ -13,11 +13,30 @@ import { CommonModule } from '@angular/common';
 export class ChatDisplayComponent {
 
   chatMessages: Signal<IChatState[]>;
+  scrollNow: boolean = false;
+
+  @ViewChild('bottom') bottomDiv !: ElementRef<HTMLDivElement>;
 
   constructor(private chatService: ChatStateService) {
     this.chatMessages = this.chatService.chatState;
+    effect(() => {
+      const messages = this.chatService.chatState();
+      if (messages.length > 0) {
+        this.scrollNow = true;
+      }
+    })
   }
 
+  ngAfterViewChecked() {
+    if(this.scrollNow){
+      this.scrollToView();
+      this.scrollNow = false;
+    }
+  }
 
+  scrollToView() {
+    if (this.bottomDiv)
+      this.bottomDiv.nativeElement.scrollIntoView({ behavior: 'smooth' })
+  }
 
 }
