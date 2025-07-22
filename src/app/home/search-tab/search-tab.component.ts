@@ -35,15 +35,15 @@ export class SearchTabComponent {
 
 
   onSubmit() {
-
     this.chatService.chatState.update(m => [
       ...m,
-      { message: this.searchText, user: true }])
+      { message: this.searchText, user: true },
+      { message: "loading...", user: false }])
     this.searchText = '';
   }
 
   handleEnter(event: KeyboardEvent) {
-    if (event.key == 'Enter' && !event.shiftKey) {
+    if (event.key == 'Enter' && !event.shiftKey && this.searchText.length > 0) {
       event.preventDefault();
       this.onSubmit();
       this.textarea.nativeElement.style.height = 'auto'

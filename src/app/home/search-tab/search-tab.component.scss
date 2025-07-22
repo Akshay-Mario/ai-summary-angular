@@ -1,6 +1,5 @@
 :host-context([data-theme="dark"]) .input-area {
     box-shadow: none;
-
 }
 
 form {
@@ -26,7 +25,7 @@ form {
     textarea {
         width: 100%;
         box-sizing: border-box;
-        background-color: var(--bg-chat-user);
+        background-color: transparent;
         border: 0px;
         color: var(--text-color);
         resize: none;
