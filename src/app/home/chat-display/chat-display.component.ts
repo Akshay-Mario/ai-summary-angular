@@ -1,7 +1,7 @@
 import { Component, effect, ElementRef, Signal, ViewChild } from '@angular/core';
-import { ChatStateService } from '../../chat-state.service';
 import { IChatState } from '../../shared/models/chat-state.model';
 import { CommonModule } from '@angular/common';
+import { ChatStateService } from '../../service/chat-state.service';
 
 @Component({
   selector: 'app-chat-display',

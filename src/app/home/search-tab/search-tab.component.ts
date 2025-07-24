@@ -1,7 +1,7 @@
 import { Component, ElementRef, signal, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AutoResizeDirective } from '../../directive/auto-resize.directive';
-import { ChatStateService } from '../../chat-state.service';
+import { ChatStateService } from '../../service/chat-state.service';
 
 @Component({
   selector: 'app-search-tab',
