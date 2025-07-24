@@ -59,4 +59,8 @@ export class LoginService {
     return this.http.post(environment.refreshUrl, { userAgent: navigator.userAgent, ipAddress: "ipaddress not given" })
   }
 
+  public getUser(): Observable<any> {
+    return this.http.get(environment.getUserUrl);
+  }
+
 }
